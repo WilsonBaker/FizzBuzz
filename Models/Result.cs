@@ -10,5 +10,7 @@ namespace FizzBuzz.Models
     {
         [Key]
         public int Id { get; set; }
+
+        public String Output { get; set; }
     }
 }

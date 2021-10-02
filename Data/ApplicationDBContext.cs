@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using FizzBuzz.Models;
 
 namespace FizzBuzz.Data
 {
@@ -12,5 +13,7 @@ namespace FizzBuzz.Data
         {
 
         }
+
+        public DbSet<Result> Results { get; set; }
     }
 }

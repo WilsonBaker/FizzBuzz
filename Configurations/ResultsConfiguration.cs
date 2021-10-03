@@ -12,6 +12,7 @@ namespace FizzBuzz.Configurations
     {
         public void Configure(EntityTypeBuilder<Result> builder)
         {
+            // Create list of results which we can add to over the course of the algorithm
             var results = new List<Result>();
 
             for (int i = 1; i <= 100; i++)
@@ -51,6 +52,7 @@ namespace FizzBuzz.Configurations
                 }
             }
 
+            // Add all FizzBuzz data as a seed data to the database
             builder.HasData(results);
         }
     }

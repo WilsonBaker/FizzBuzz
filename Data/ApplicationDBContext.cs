@@ -19,7 +19,7 @@ namespace FizzBuzz.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Add 
+            // Add all configurations in the project in one line. Allows for easy extension
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
     }

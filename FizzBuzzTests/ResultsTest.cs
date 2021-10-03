@@ -29,18 +29,7 @@ namespace FizzBuzzTests
             _options = new DbContextOptionsBuilder<ApplicationDBContext>()
                 .UseSqlServer(_configuration.GetConnectionString("DefaultConnection"))
                 .Options;
-
-            //Seed();
         }
-
-        //private void Seed()
-        //{
-        //    using (var context = new ApplicationDBContext(_options))
-        //    {
-        //        context.Database.EnsureDeleted();
-        //        context.Database.Migrate();
-        //    }
-        //}
 
         #region Check_database_is_not_empty
         [Fact]
@@ -68,6 +57,20 @@ namespace FizzBuzzTests
                 var results = objList.ToList();
 
                 Assert.Equal("Fizz", results[2].Output);
+            }
+        }
+        #endregion
+
+        #region Check_5_is_Buzz
+        [Fact]
+        public void Check_5_is_Buzz()
+        {
+            using (var context = new ApplicationDBContext(_options))
+            {
+                IEnumerable<Result> objList = context.Results;
+                var results = objList.ToList();
+
+                Assert.Equal("Buzz", results[4].Output);
             }
         }
         #endregion

@@ -93,7 +93,21 @@ namespace FizzBuzzTests
                 IEnumerable<Result> objList = context.Results;
                 var results = objList.ToList();
 
-                Assert.Equal("Buzz", results[4].Output);
+                Assert.Equal("FizzBuzz", results[14].Output);
+            }
+        }
+        #endregion
+
+        #region Check_16_is_16
+        [Fact]
+        public void Check_16_is_16()
+        {
+            using (var context = new ApplicationDBContext(_options))
+            {
+                IEnumerable<Result> objList = context.Results;
+                var results = objList.ToList();
+
+                Assert.Equal("16", results[15].Output);
             }
         }
         #endregion

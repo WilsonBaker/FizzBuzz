@@ -2,7 +2,32 @@
     ViewData["Title"] = "Home Page";
 }
 
+@model IEnumerable<FizzBuzz.Models.Result>
+
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">FizzBuzz Challenge</h1>
+</div>
+
+<div>
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Output
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var obj in Model)
+            {
+            <tr>
+                <td width="20%">@obj.Id</td>
+                <td width="80%">@obj.Output</td>
+            </tr>
+            }
+        </tbody>
+    </table>
 </div>

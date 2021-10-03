@@ -31,14 +31,23 @@ namespace FizzBuzzTests
                 .Options;
         }
 
+        [Fact]
+        public void initDatabase()
+        {
+            using (var context = new ApplicationDBContext(_options))
+            {
+                context.Database.EnsureDeleted();
+                context.Database.Migrate();
+            }
+        }
+
+
         #region Check_database_is_not_empty
         [Fact]
         public void Check_database_is_not_empty()
         {
             using (var context = new ApplicationDBContext(_options))
             {
-                context.Database.EnsureDeleted();
-                context.Database.Migrate();
                 IEnumerable<Result> objList = context.Results;
                 var results = objList.ToList();
 
@@ -64,6 +73,20 @@ namespace FizzBuzzTests
         #region Check_5_is_Buzz
         [Fact]
         public void Check_5_is_Buzz()
+        {
+            using (var context = new ApplicationDBContext(_options))
+            {
+                IEnumerable<Result> objList = context.Results;
+                var results = objList.ToList();
+
+                Assert.Equal("Buzz", results[4].Output);
+            }
+        }
+        #endregion
+
+        #region Check_15_is_FizzBuzz
+        [Fact]
+        public void Check_15_is_FizzBuzz()
         {
             using (var context = new ApplicationDBContext(_options))
             {
